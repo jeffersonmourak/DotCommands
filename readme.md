@@ -73,5 +73,9 @@ The module now can detect 18 different file extensions
 - DLL
 - A
 
+# DEMO
+
+![demo](https://raw.githubusercontent.com/jeffersonmourak/DotCommands/master/_images/dotcommands preview.gif "demo")
+
 # Licence
 - MIT
