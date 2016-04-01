@@ -1,5 +1,5 @@
 import subprocess
-
+import os
 from dot_commands import commands
 
 def makeCommand(string, array):
