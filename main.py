@@ -4,9 +4,7 @@ import os
 import importlib
 import sys
 
-from dot_commands import fileAnalizer
-from dot_commands import setupCommands
-from dot_commands import installation
+from dot_commands import fileAnalizer, installation, actions
 
 def initiator(name):
     module = importlib.import_module("dot_commands.cores." + projectType.lower() + ".loader")
@@ -26,8 +24,8 @@ if __name__ == "__main__":
 
     arguments = sys.argv[1:]
 
-    if not arguments[0] == "setup":
+    if not arguments[0] in actions.registerd:
         initiateModule(projectType.lower(), arguments)
-
     else:
-        setupCommands.list(os.getcwd())
+        trigger = getattr(actions, arguments[0])
+        trigger()

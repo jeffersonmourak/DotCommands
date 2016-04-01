@@ -1,12 +1,18 @@
 # -*- coding: utf-8 -*-
 from os import listdir
-from os.path import isfile, join
+from os.path import isfile, join, isdir
 
 import patterns
 import common
 
 def listDirectory(_dir):
-    files = [f for f in listdir(_dir) if isfile(join(_dir, f))]
+    files = []
+
+    for f in listdir(_dir):
+        if isfile(join(_dir, f)):
+            files.append(f)
+        elif isdir(join(_dir, f)):
+            files += listDirectory(join(_dir, f))
 
     return files
 
@@ -22,8 +28,9 @@ def verifyMajority(array):
 
     return majority
 
-def getProjectMainType(_dir):
+def listFiles(_dir, total=False):
     filesType = []
+    countFiles = 0
     files = listDirectory(_dir)
 
     for filename in files:
@@ -37,5 +44,9 @@ def getProjectMainType(_dir):
             })
         else:
             filesType[cachePosition]["count"] += 1
+        countFiles += 1
+    return (filesType, countFiles) if total else filesType
 
+def getProjectMainType(_dir):
+    filesType = listFiles(_dir)
     return verifyMajority(filesType)["name"]
