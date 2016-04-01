@@ -5,13 +5,15 @@ from os.path import isfile, join, isdir
 import patterns
 import common
 
+ignored_dirs = [".git", "bower_components", "node_modules", ".env", ".idea", "env"]
+
 def listDirectory(_dir):
     files = []
 
     for f in listdir(_dir):
         if isfile(join(_dir, f)):
             files.append(f)
-        elif isdir(join(_dir, f)):
+        elif isdir(join(_dir, f)) and not f in ignored_dirs:
             files += listDirectory(join(_dir, f))
 
     return files
