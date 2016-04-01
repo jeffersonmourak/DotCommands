@@ -25,7 +25,7 @@ setup(
   name = 'dot_commands',
   packages = ['dot_commands'], # this must be the same as the name above
   version = '0.1',
-  description = 'Project command unification',
+  description = 'Project command unification. powered with python',
   author = 'Jefferson Moura',
   author_email = 'jefinho.moura14@gmail.com',
   # url = 'https://github.com/peterldowns/mypackage', # use the URL to the github repo
