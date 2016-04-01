@@ -5,9 +5,7 @@ def fixPath(command, path):
         command[index] = item.replace("./", path + "/")
 
     return command
-def runCommand(command, path):
-    command = fixPath(command, path)
-    print command
+def runCommand(command):
     try:
         command = subprocess.Popen(command, stdout=subprocess.PIPE)
         output = command.communicate()[0]

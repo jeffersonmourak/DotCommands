@@ -30,4 +30,4 @@ def findAndRun(name, path):
     else:
         print "Running action " + action["name"]
         commandLine = action["command"].split(" ")
-        commands.runCommand(commandLine, path)
+        commands.runCommand(commandLine)

@@ -35,7 +35,7 @@ def list(path):
         if not os.path.isfile(installed+"."+action):
             print "Creating ." + action
             filename = open(installed+"."+action, "w")
-            filename.write("python " + getInstalledPath() + "/dotcommands.py " + action + " $*")
+            filename.write("python " + installation.path + "/main.py " + action + " $*")
             filename.close()
             print "Updating permissions to ." + action
             updatePermissions(installed+"."+action)
