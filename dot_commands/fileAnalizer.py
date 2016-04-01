@@ -35,11 +35,12 @@ def listFiles(_dir, total=False):
 
     for filename in files:
         _type = patterns.fileProjectType(filename)
-        cachePosition = common.dictKeyInArray("name", _type, filesType)
+        cachePosition = common.dictKeyInArray("name", _type["name"], filesType)
 
         if(cachePosition == -1):
             filesType.append({
-                "name": _type,
+                "name": _type["name"],
+                "label": _type["label"],
                 "count": 1
             })
         else:

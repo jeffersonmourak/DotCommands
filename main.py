@@ -12,8 +12,10 @@ def initiator(name):
 
 def initiateModule(name, arguments):
     currentPath = os.getcwd()
-    initiator(name)(currentPath, arguments)
-
+    try:
+        initiator(name)(currentPath, arguments)
+    except ImportError:
+        print "No Module created for this type of project"
 def getInstalledPath():
     pathArray = __file__.split("/")[:-1]
     return "/".join(pathArray)
