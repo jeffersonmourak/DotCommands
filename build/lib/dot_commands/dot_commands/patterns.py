@@ -20,7 +20,7 @@ projectPattern = [
     },
     {
         "name": "CSS",
-        "label": "CSS (Cascate Style Sheet)",
+        "label": "CSS (Cascade Style Sheet)",
         "extentions": [".css"]
     },
     {
